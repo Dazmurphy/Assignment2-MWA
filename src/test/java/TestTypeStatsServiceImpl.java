@@ -11,12 +11,11 @@ public class TestTypeStatsServiceImpl {
 
 	@Before
 	public void setUp(){
-		typeStatsService = mock(TypeStatsServiceImpl.class);
+		typeStatsService = new TypeStatsServiceImpl();
 	}
 	
 	@Test
 	public void TestTypeCreateOutput(){
-		when(typeStatsService.createOutput("FACEBOOK_PAGE")).thenReturn("{\"type\" : \"FACEBOOK_PAGE\",\"num_of_accounts\":\"106\"}");
 		String reply = typeStatsService.createOutput("FACEBOOK_PAGE");
 		assertEquals("{\"type\" : \"FACEBOOK_PAGE\",\"num_of_accounts\":\"106\"}", reply);
 	}

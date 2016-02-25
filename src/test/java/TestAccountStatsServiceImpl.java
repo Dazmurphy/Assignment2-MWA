@@ -11,12 +11,11 @@ public class TestAccountStatsServiceImpl {
 
 	@Before
 	public void setUp(){
-		accountStatsService = mock(AccountStatsServiceImpl.class);
+		accountStatsService = new AccountStatsServiceImpl();
 	}
 	
 	@Test
 	public void TestAccountCreateOutput(){
-		when(accountStatsService.createOutput("Austintexasgov")).thenReturn("{\"account\" : \"Austintexasgov\",\"num_of_types\":\"9\"}");
 		String reply = accountStatsService.createOutput("Austintexasgov");
 		assertEquals("{\"account\" : \"Austintexasgov\",\"num_of_types\":\"9\"}", reply);
 	}

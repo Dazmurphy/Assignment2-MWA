@@ -22,6 +22,7 @@ public class TestSocialMediaController {
 		when(mockAccountService.createOutput("AE")).thenReturn("{\"account\" : \"AE\",\"num_of_types\":\"6\"}");
 		String reply = socialMediaController.getStats("AE", null);
 		assertEquals("{\"account\" : \"AE\",\"num_of_types\":\"6\"}", reply);
+		verify(mockAccountService).createOutput("AE");
 	}
 	
 	@Test
@@ -29,6 +30,7 @@ public class TestSocialMediaController {
 		when(mockTypeService.createOutput("INSTAGRAM")).thenReturn("{\"type\" : \"INSTAGRAM\",\"num_of_accounts\":\"9\"}");
 		String reply = socialMediaController.getStats(null, "INSTAGRAM");
 		assertEquals("{\"type\" : \"INSTAGRAM\",\"num_of_accounts\":\"9\"}", reply);
+		verify(mockTypeService).createOutput("INSTAGRAM");
 	}
 	
 	@Test
